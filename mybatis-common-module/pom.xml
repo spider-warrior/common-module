@@ -14,4 +14,11 @@
     <modules>
         <module>mybatis-id-generator</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.t</groupId>
+            <artifactId>mybatis-base-dao</artifactId>
+        </dependency>
+    </dependencies>
 </project>
