@@ -3,13 +3,15 @@ package cn.t.common.mybatis.idgenerator;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.executor.keygen.KeyGenerator;
 import org.apache.ibatis.mapping.MappedStatement;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 
 import java.sql.Statement;
 
 public class RedisKeyGenerator implements KeyGenerator {
 
-    private StringRedisTemplate stringRedisTemplate;
+    private static final String ID_KEY_PREFIX = "GENERATE_ID:";
+
+    private ValueOperations<String, String> valueOperations;
     private long step = 2;
     private long current = 0;
     private long last = -1;
@@ -25,15 +27,18 @@ public class RedisKeyGenerator implements KeyGenerator {
     }
 
     synchronized long generateId(String db, String table) {
-        String key = "GENERATE_ID:".concat(db.concat(":").concat(table).toUpperCase());
+        String key = ID_KEY_PREFIX.concat(db.concat(":").concat(table).toUpperCase());
         if(current > last) {
-            last = stringRedisTemplate.opsForValue().increment(key, step);
-            current = last - step + 1;
+            Long result = valueOperations.increment(key, step);
+            if(result != null) {
+                last = result;
+                current = last - step + 1;
+            }
         }
         return current++;
     }
 
-    public RedisKeyGenerator(StringRedisTemplate stringRedisTemplate) {
-        this.stringRedisTemplate = stringRedisTemplate;
+    public RedisKeyGenerator(ValueOperations<String, String> valueOperations) {
+        this.valueOperations = valueOperations;
     }
 }
