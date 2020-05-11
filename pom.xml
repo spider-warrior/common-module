@@ -10,6 +10,7 @@
     <modules>
         <module>mybatis-common-module</module>
         <module>common-module-dependency-management</module>
+        <module>jdk-extension</module>
     </modules>
     <packaging>pom</packaging>
 
