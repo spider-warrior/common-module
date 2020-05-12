@@ -12,7 +12,7 @@ import java.security.ProtectionDomain;
  * @author yj
  * @since 2020-05-11 21:12
  **/
-public class ThreadAgent implements ClassFileTransformer {
+public class ThreadTransformer implements ClassFileTransformer {
 
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) {
@@ -28,6 +28,7 @@ public class ThreadAgent implements ClassFileTransformer {
                     CtPrimitiveType.booleanType
                 };
                 CtMethod initMethod = ctClass.getDeclaredMethod("init", paraTypes);
+                initMethod.insertBefore("System.out.println(\"起飞之前准备降落伞\");");
             } catch (Exception e) {
                 e.printStackTrace();
             }
