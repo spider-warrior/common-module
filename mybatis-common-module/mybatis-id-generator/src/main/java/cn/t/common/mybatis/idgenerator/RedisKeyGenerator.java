@@ -11,8 +11,8 @@ public class RedisKeyGenerator implements KeyGenerator {
 
     private static final String ID_KEY_PREFIX = "GENERATE_ID:";
 
-    private ValueOperations<String, String> valueOperations;
-    private long step = 2;
+    private final ValueOperations<String, String> valueOperations;
+    private final long step = 2;
     private long current = 0;
     private long last = -1;
 

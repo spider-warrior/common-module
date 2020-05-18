@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  **/
 public class InMemoryKeyGenerator implements KeyGenerator {
 
-    private AtomicInteger id = new AtomicInteger(1);
+    private final AtomicInteger id = new AtomicInteger(1);
 
     @Override
     public void processBefore(Executor executor, MappedStatement ms, Statement stmt, Object parameter) {
