@@ -11,6 +11,7 @@
         <module>mybatis-common-module</module>
         <module>common-module-dependency-management</module>
         <module>jdk-extension-module</module>
+        <module>trace-common-module</module>
     </modules>
     <packaging>pom</packaging>
 
