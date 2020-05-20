@@ -9,14 +9,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>logback-trace-module</artifactId>
+    <artifactId>logback-trace</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
+            <groupId>cn.t</groupId>
+            <artifactId>trace-generic</artifactId>
+        </dependency>
+        <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.0</version>
         </dependency>
     </dependencies>
 
