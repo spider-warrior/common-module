@@ -19,6 +19,11 @@
                 <artifactId>java-agent-extension</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>cn.t</groupId>
+                <artifactId>logback-trace-module</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
