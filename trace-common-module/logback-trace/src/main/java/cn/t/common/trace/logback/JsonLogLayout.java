@@ -1,4 +1,4 @@
-package cn.t.common.trace.loback;
+package cn.t.common.trace.logback;
 
 import ch.qos.logback.classic.pattern.LevelConverter;
 import ch.qos.logback.classic.pattern.LineOfCallerConverter;
