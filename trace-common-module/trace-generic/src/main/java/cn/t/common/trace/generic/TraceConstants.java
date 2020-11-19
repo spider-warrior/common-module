@@ -10,18 +10,18 @@ public class TraceConstants {
 
     public static final String TRACE_ID_HEADER_NAME = "X-Request-Id";
 
-    public static final String TRACE_ID_NAME = "TRACE_ID";
+    public static final String TRACE_ID_NAME = "traceId";
 
-    public static final String TRACE_APP_NAME = "APP_NAME";
+    public static final String TRACE_APP_NAME = "appName";
 
-    public static final String TRACE_LOGGER_NAME = "LOGGER";
+    public static final String TRACE_LOGGER_NAME = "logger";
 
-    public static final String TRACE_CLASS_NAME = "CLASS";
+    public static final String TRACE_CLASS_NAME = "class";
 
-    public static final String TRACE_METHOD_NAME = "METHOD";
+    public static final String TRACE_METHOD_NAME = "method";
 
-    public static final String TRACE_SUCCESS_NAME = "SUCCESS";
+    public static final String TRACE_SUCCESS_NAME = "success";
 
-    public static final String TRACE_RT_NAME = "RT";
+    public static final String TRACE_RT_NAME = "rt";
 
 }
