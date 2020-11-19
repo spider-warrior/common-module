@@ -47,7 +47,7 @@ public class JsonLogLayout extends LayoutBase<ILoggingEvent> {
         map.put(traceId, event.getMDCPropertyMap().get(TraceConstants.TRACE_ID_NAME));
         map.put(host, SystemUtil.getLocalIpV4(true));
         map.put(appName, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_APP_NAME));
-        map.put(logger, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_LOGGER_NAME));
+        map.put(logger, event.getLoggerName());
         map.put(thread, threadConverter.convert(event));
         map.put(clazz, event.getMDCPropertyMap().get(TraceConstants.TRACE_CLASS_NAME));
         map.put(method, event.getMDCPropertyMap().get(TraceConstants.TRACE_METHOD_NAME));
