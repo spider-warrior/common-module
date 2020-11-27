@@ -1,6 +1,5 @@
 package cn.t.common.trace.logback;
 
-import ch.qos.logback.classic.pattern.MethodOfCallerConverter;
 import ch.qos.logback.classic.pattern.ThreadConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.CoreConstants;
@@ -23,8 +22,8 @@ import java.util.Map;
  **/
 public class JsonLogLayout extends LayoutBase<ILoggingEvent> {
 
-    private static final MethodOfCallerConverter methodOfCallerConverter = new MethodOfCallerConverter();
     private static final ThreadConverter threadConverter = new ThreadConverter();
+    private static final String CURRENT_HOST = SystemUtil.getLocalIpV4(true);
 
     private static final String ERROR_PATTERN = "{\"error\": \"%s\"}";
 
@@ -45,7 +44,7 @@ public class JsonLogLayout extends LayoutBase<ILoggingEvent> {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put(time, DateUtil.convertToDateTimeString(new Date(event.getTimeStamp())));
         map.put(traceId, event.getMDCPropertyMap().get(TraceConstants.TRACE_ID_NAME));
-        map.put(host, SystemUtil.getLocalIpV4(true));
+        map.put(host, CURRENT_HOST);
         map.put(appName, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_APP_NAME));
         map.put(logger, event.getLoggerName());
         map.put(thread, threadConverter.convert(event));
