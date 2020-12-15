@@ -42,7 +42,7 @@ public class JsonLogLayout extends LayoutBase<ILoggingEvent> {
     @Override
     public String doLayout(ILoggingEvent event) {
         Map<String, Object> map = new LinkedHashMap<>();
-        map.put(time, DateUtil.convertToDateTimeString(new Date(event.getTimeStamp())));
+        map.put(time, DateUtil.convertToZonedDateTimeString((new Date(event.getTimeStamp()))));
         map.put(traceId, event.getMDCPropertyMap().get(TraceConstants.TRACE_ID_NAME));
         map.put(hostname, CURRENT_IP);
         map.put(appName, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_APP_NAME));
