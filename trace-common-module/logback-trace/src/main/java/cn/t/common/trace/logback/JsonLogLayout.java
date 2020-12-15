@@ -23,7 +23,7 @@ import java.util.Map;
 public class JsonLogLayout extends LayoutBase<ILoggingEvent> {
 
     private static final ThreadConverter threadConverter = new ThreadConverter();
-    private static final String CURRENT_HOST = SystemUtil.getLocalIpV4(true);
+    private static final String CURRENT_IP = SystemUtil.getLocalIpV4(true);
 
     private static final String ERROR_PATTERN = "{\"error\": \"%s\"}";
 
@@ -31,7 +31,7 @@ public class JsonLogLayout extends LayoutBase<ILoggingEvent> {
     private static final String traceId = "traceId";
     private static final String thread = "thread";
     private static final String logger = "logger";
-    private static final String host = "host";
+    private static final String hostname = "hostname";
     private static final String appName = "appName";
     private static final String clazz = "class";
     private static final String method = "method";
@@ -44,7 +44,7 @@ public class JsonLogLayout extends LayoutBase<ILoggingEvent> {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put(time, DateUtil.convertToDateTimeString(new Date(event.getTimeStamp())));
         map.put(traceId, event.getMDCPropertyMap().get(TraceConstants.TRACE_ID_NAME));
-        map.put(host, CURRENT_HOST);
+        map.put(hostname, CURRENT_IP);
         map.put(appName, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_APP_NAME));
         map.put(logger, event.getLoggerName());
         map.put(thread, threadConverter.convert(event));
