@@ -11,13 +11,16 @@ import cn.t.util.common.SystemUtil;
  **/
 public class TraceIdGenerator {
 
+    private static final String IP = SystemUtil.getLocalIpV4(true);
+    private static final String PID = SystemUtil.getPid();
     //[service-name]-$pid-$mills-$tid
     private static final String TRACE_ID_PATTERN = "[%s]-%s-%d-%d";
 
     public static String generateTraceId(String serviceName) {
+        java.time.Instant.now();
         if(StringUtil.isEmpty(serviceName)) {
-            serviceName = SystemUtil.getLocalIpV4(true);
+            serviceName = IP;
         }
-        return String.format(TRACE_ID_PATTERN, serviceName, SystemUtil.getPid(), System.currentTimeMillis(), Thread.currentThread().getId());
+        return String.format(TRACE_ID_PATTERN, serviceName, PID, SystemUtil.now(), Thread.currentThread().getId());
     }
 }
