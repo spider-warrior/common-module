@@ -1,9 +1,6 @@
 package cn.t.common.trace.logback;
 
-import ch.qos.logback.classic.pattern.ClassOfCallerConverter;
-import ch.qos.logback.classic.pattern.LineOfCallerConverter;
-import ch.qos.logback.classic.pattern.MethodOfCallerConverter;
-import ch.qos.logback.classic.pattern.ThreadConverter;
+import ch.qos.logback.classic.pattern.*;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.LayoutBase;
@@ -30,6 +27,7 @@ public class AppLogLayout extends LayoutBase<ILoggingEvent> {
     private static final ClassOfCallerConverter classOfCallerConverter = new ClassOfCallerConverter();
     private static final MethodOfCallerConverter methodOfCallerConverter = new MethodOfCallerConverter();
     private static final LineOfCallerConverter lineOfCallerConverter = new LineOfCallerConverter();
+    private static final LevelConverter levelConverter = new LevelConverter();
 
     private static final String CURRENT_IP = SystemUtil.getLocalIpV4(true);
 
@@ -39,7 +37,6 @@ public class AppLogLayout extends LayoutBase<ILoggingEvent> {
     private static final String traceId = "traceId";
     private static final String clientId = "clientId";
     private static final String thread = "thread";
-    private static final String logger = "logger";
     private static final String level = "level";
     private static final String clazz = "class";
     private static final String hostname = "hostname";
@@ -56,8 +53,7 @@ public class AppLogLayout extends LayoutBase<ILoggingEvent> {
         map.put(clientId, event.getMDCPropertyMap().get(TraceConstants.CLIENT_ID_NAME));
         map.put(hostname, CURRENT_IP);
         map.put(appName, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_APP_NAME));
-        map.put(logger, event.getLoggerName());
-        map.put(level, event.getLevel());
+        map.put(level, levelConverter.convert(event));
         map.put(clazz, classOfCallerConverter.convert(event));
         map.put(thread, threadConverter.convert(event));
         map.put(method, methodOfCallerConverter.convert(event));
