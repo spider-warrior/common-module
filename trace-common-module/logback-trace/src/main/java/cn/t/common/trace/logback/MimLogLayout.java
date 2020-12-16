@@ -1,5 +1,6 @@
 package cn.t.common.trace.logback;
 
+import ch.qos.logback.classic.pattern.LevelConverter;
 import ch.qos.logback.classic.pattern.ThreadConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.CoreConstants;
@@ -23,6 +24,7 @@ import java.util.Map;
 public class MimLogLayout extends LayoutBase<ILoggingEvent> {
 
     private static final ThreadConverter threadConverter = new ThreadConverter();
+    private static final LevelConverter levelConverter = new LevelConverter();
     private static final String CURRENT_IP = SystemUtil.getLocalIpV4(true);
 
     private static final String ERROR_PATTERN = "{\"error\": \"%s\"}";
@@ -48,7 +50,7 @@ public class MimLogLayout extends LayoutBase<ILoggingEvent> {
         map.put(hostname, CURRENT_IP);
         map.put(appName, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_APP_NAME));
         map.put(logger, event.getLoggerName());
-        map.put(level, event.getLevel());
+        map.put(level, levelConverter.convert(event));
         map.put(thread, threadConverter.convert(event));
         map.put(clazz, event.getMDCPropertyMap().get(TraceConstants.TRACE_CLASS_NAME));
         map.put(method, event.getMDCPropertyMap().get(TraceConstants.TRACE_METHOD_NAME));
