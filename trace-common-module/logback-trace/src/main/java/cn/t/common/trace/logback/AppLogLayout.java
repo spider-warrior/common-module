@@ -1,5 +1,8 @@
 package cn.t.common.trace.logback;
 
+import ch.qos.logback.classic.pattern.ClassOfCallerConverter;
+import ch.qos.logback.classic.pattern.LineOfCallerConverter;
+import ch.qos.logback.classic.pattern.MethodOfCallerConverter;
 import ch.qos.logback.classic.pattern.ThreadConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.CoreConstants;
@@ -20,9 +23,14 @@ import java.util.Map;
  * @author yj
  * @since 2020-04-15 19:51
  **/
-public class JsonLogLayout extends LayoutBase<ILoggingEvent> {
+public class AppLogLayout extends LayoutBase<ILoggingEvent> {
 
     private static final ThreadConverter threadConverter = new ThreadConverter();
+
+    private static final ClassOfCallerConverter classOfCallerConverter = new ClassOfCallerConverter();
+    private static final MethodOfCallerConverter methodOfCallerConverter = new MethodOfCallerConverter();
+    private static final LineOfCallerConverter lineOfCallerConverter = new LineOfCallerConverter();
+
     private static final String CURRENT_IP = SystemUtil.getLocalIpV4(true);
 
     private static final String ERROR_PATTERN = "{\"error\": \"%s\"}";
@@ -33,12 +41,11 @@ public class JsonLogLayout extends LayoutBase<ILoggingEvent> {
     private static final String thread = "thread";
     private static final String logger = "logger";
     private static final String level = "level";
+    private static final String clazz = "class";
     private static final String hostname = "hostname";
     private static final String appName = "appName";
-    private static final String clazz = "class";
     private static final String method = "method";
-    private static final String success = "success";
-    private static final String rt = "rt";
+    private static final String line = "line";
     private static final String msg = "msg";
 
     @Override
@@ -51,11 +58,10 @@ public class JsonLogLayout extends LayoutBase<ILoggingEvent> {
         map.put(appName, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_APP_NAME));
         map.put(logger, event.getLoggerName());
         map.put(level, event.getLevel());
+        map.put(clazz, classOfCallerConverter.convert(event));
         map.put(thread, threadConverter.convert(event));
-        map.put(clazz, event.getMDCPropertyMap().get(TraceConstants.TRACE_CLASS_NAME));
-        map.put(method, event.getMDCPropertyMap().get(TraceConstants.TRACE_METHOD_NAME));
-        map.put(success, event.getMDCPropertyMap().get(TraceConstants.TRACE_SUCCESS_NAME));
-        map.put(rt, event.getMDCPropertyMap().get(TraceConstants.TRACE_RT_NAME));
+        map.put(method, methodOfCallerConverter.convert(event));
+        map.put(line, lineOfCallerConverter.convert(event));
         map.put(msg, event.getFormattedMessage());
         try {
             return JsonUtil.serialize(map) + CoreConstants.LINE_SEPARATOR;
