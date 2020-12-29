@@ -10,6 +10,10 @@ public class TraceConstants {
 
     public static final String TRACE_ID_HEADER_NAME = "X-Request-Id";
 
+    public static final String TRACE_USER_ID_HEADER_NAME = "X-Request-User-Id";
+
+    public static final String TRACE_CLIENT_ID_HEADER_NAME = "X-Request-Client-Id";
+
     public static final String TRACE_ID_NAME = "traceId";
 
     public static final String CLIENT_ID_NAME = "clientId";
