@@ -38,6 +38,7 @@ public class AppLogLayout extends LayoutBase<ILoggingEvent> {
     private static final String time = "time";
     private static final String traceId = "traceId";
     private static final String clientId = "clientId";
+    private static final String userId = "userId";
     private static final String thread = "thread";
     private static final String level = "level";
     private static final String clazz = "class";
@@ -54,6 +55,7 @@ public class AppLogLayout extends LayoutBase<ILoggingEvent> {
         map.put(time, DateUtil.convertToZonedDateTimeString((new Date(event.getTimeStamp()))));
         map.put(traceId, event.getMDCPropertyMap().get(TraceConstants.TRACE_ID_NAME));
         map.put(clientId, event.getMDCPropertyMap().get(TraceConstants.CLIENT_ID_NAME));
+        map.put(userId, event.getMDCPropertyMap().get(TraceConstants.USER_ID_NAME));
         map.put(hostname, CURRENT_IP);
         map.put(appName, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_APP_NAME));
         map.put(level, levelConverter.convert(event));

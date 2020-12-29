@@ -14,6 +14,8 @@ public class TraceConstants {
 
     public static final String CLIENT_ID_NAME = "clientId";
 
+    public static final String USER_ID_NAME = "userId";
+
     public static final String TRACE_APP_NAME = "appName";
 
     public static final String TRACE_LOGGER_NAME = "logger";
