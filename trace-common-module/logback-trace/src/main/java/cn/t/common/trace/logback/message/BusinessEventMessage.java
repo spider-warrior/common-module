@@ -3,7 +3,7 @@ package cn.t.common.trace.logback.message;
 import java.util.Properties;
 
 /**
- * business event messge
+ * business event message
  *
  * @author yj
  * @since 2021-01-26 14:41
