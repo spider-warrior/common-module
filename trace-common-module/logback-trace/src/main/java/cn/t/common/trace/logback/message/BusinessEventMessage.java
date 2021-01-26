@@ -1,5 +1,6 @@
 package cn.t.common.trace.logback.message;
 
+import java.io.Serializable;
 import java.util.Properties;
 
 /**
@@ -8,7 +9,9 @@ import java.util.Properties;
  * @author yj
  * @since 2021-01-26 14:41
  **/
-public class BusinessEventMessage {
+public class BusinessEventMessage implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String userId;
     private String eventType;
     private Properties properties;
