@@ -27,8 +27,6 @@ public class MimLogLayout extends LayoutBase<ILoggingEvent> {
     private static final LevelConverter levelConverter = new LevelConverter();
     private static final String CURRENT_IP = SystemUtil.getLocalIpV4(true);
 
-    private static final String ERROR_PATTERN = "{\"error\": \"%s\"}";
-
     private static final String time = "time";
     private static final String traceId = "traceId";
     private static final String thread = "thread";
@@ -60,7 +58,7 @@ public class MimLogLayout extends LayoutBase<ILoggingEvent> {
         try {
             return JsonUtil.serialize(map) + CoreConstants.LINE_SEPARATOR;
         } catch (JsonProcessingException e) {
-            return String.format(ERROR_PATTERN, map.toString()) + CoreConstants.LINE_SEPARATOR;
+            return String.format(LogConstants.ERROR_MESSAGE_PATTERN, map.toString()) + CoreConstants.LINE_SEPARATOR;
         }
     }
 }
