@@ -14,7 +14,6 @@ public class BusinessEventMessage implements Serializable {
 
     private String userId;
     private String eventType;
-    private String applicationName;
     private Properties properties;
 
     public String getUserId() {
@@ -33,14 +32,6 @@ public class BusinessEventMessage implements Serializable {
         this.eventType = eventType;
     }
 
-    public String getApplicationName() {
-        return applicationName;
-    }
-
-    public void setApplicationName(String applicationName) {
-        this.applicationName = applicationName;
-    }
-
     public Properties getProperties() {
         return properties;
     }
@@ -54,7 +45,6 @@ public class BusinessEventMessage implements Serializable {
         return "BusinessEventMessage{" +
             "userId='" + userId + '\'' +
             ", eventType='" + eventType + '\'' +
-            ", applicationName='" + applicationName + '\'' +
             ", properties=" + properties +
             '}';
     }
