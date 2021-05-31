@@ -8,88 +8,17 @@
     <artifactId>common-module</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>mybatis-common-module</module>
-        <module>common-module-dependency-management</module>
-        <module>jdk-extension-module</module>
-        <module>trace-common-module</module>
+        <module>common-mybatis</module>
+        <module>common-trace</module>
+        <module>common-entity</module>
+        <module>common-feign</module>
+        <module>common-response</module>
+        <module>common-rpc</module>
+        <module>common-service</module>
     </modules>
     <packaging>pom</packaging>
 
     <properties>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <resource.delimiter>@</resource.delimiter>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-
-        <slf4j-api.version>1.7.30</slf4j-api.version>
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j-api.version}</version>
-        </dependency>
-    </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>cn.t</groupId>
-                <artifactId>util-dependency-management</artifactId>
-                <version>1.1.0-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>cn.t</groupId>
-                <artifactId>base-module-dependency-management</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>cn.t</groupId>
-                <artifactId>common-module-dependency-management</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-<!--    <distributionManagement>-->
-<!--        <snapshotRepository>-->
-<!--            <id>oss</id>-->
-<!--            <url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
-<!--        </snapshotRepository>-->
-<!--        <repository>-->
-<!--            <id>oss</id>-->
-<!--            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>-->
-<!--        </repository>-->
-<!--    </distributionManagement>-->
-
-    <distributionManagement>
-
-        <repository>
-            <id>maven-releases</id>
-            <name>Internal Releases</name>
-            <url>http://maven.ifenxi.com/repository/maven-releases/</url>
-        </repository>
-
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>http://maven.ifenxi.com/repository/maven-snapshots/</url>
-        </snapshotRepository>
-
-    </distributionManagement>
 </project>
