@@ -27,9 +27,7 @@ public class FeignRpcService {
 
     private final Logger logger = LoggerFactory.getLogger(FeignRpcService.class);
 
-    /**
-     * 400
-     * */
+    // 400
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public RpcResult<Object> methodArgumentNotValid(MethodArgumentNotValidException e) {
         BindingResult bindingResult = e.getBindingResult();
@@ -44,9 +42,7 @@ public class FeignRpcService {
         return result;
     }
 
-    /**
-     * 400
-     * */
+    // 400
     @ExceptionHandler(BindException.class)
     public RpcResult<Object> methodArgumentNotValid(BindException e) {
         BindingResult bindingResult = e.getBindingResult();
@@ -66,36 +62,28 @@ public class FeignRpcService {
         return errorFieldMap;
     }
 
-    /**
-     * 404
-     */
+    // 404
     @ExceptionHandler(NoHandlerFoundException.class)
     public RpcResult<Object> noHandlerFound(NoHandlerFoundException e) {
         logger.error("cat a NoHandlerFoundException", e);
         return RpcResult.buildFail(ErrorInfoEnum.SOURCE_NOT_FOUND.errorInfo);
     }
 
-    /**
-     * 400
-     * */
+    // 400
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public RpcResult<Object> messageNotReadable(HttpMessageNotReadableException e) {
         logger.error("cat a HttpMessageNotReadableException", e);
         return RpcResult.buildFail(ErrorInfoEnum.BAD_PARAM.errorInfo);
     }
 
-    /**
-     * 405
-     * */
+    // 405
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public RpcResult<Object> methodNotSupport(HttpRequestMethodNotSupportedException e) {
         logger.error("cat a HttpRequestMethodNotSupportedException", e);
         return RpcResult.buildFail(ErrorInfoEnum.METHOD_NOT_SUPPORT.errorInfo);
     }
 
-    /**
-     * service exception
-     */
+    // service exception
     @ExceptionHandler(ServiceException.class)
     public RpcResult<Object> exception(ServiceException e) {
         if(StringUtils.isEmpty(e.getCode())) {
@@ -107,9 +95,7 @@ public class FeignRpcService {
         }
     }
 
-    /**
-     * 500
-     */
+    // 500
     @ExceptionHandler(Throwable.class)
     public RpcResult<Object> exception(Throwable t) {
         logger.error("catch a exception", t);
