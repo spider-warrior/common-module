@@ -14,15 +14,23 @@ public class TraceConstants {
 
     public static final String TRACE_CLIENT_ID_HEADER_NAME = "X-Request-Client-Id";
 
+    public static final String TRACE_SPAN_ID_HEADER_NAME = "X-Request-Span-Id";
+
     public static final String TRACE_ID_NAME = "traceId";
 
     public static final String CLIENT_ID_NAME = "clientId";
 
     public static final String USER_ID_NAME = "userId";
 
+    public static final String SPAN_ID_NAME = "spanId";
+
     public static final String TRACE_APP_NAME = "appName";
 
+    public static final String TRACE_HOSTNAME = "hostname";
+
     public static final String TRACE_LOGGER_NAME = "logger";
+
+    public static final String TRACE_THREAD_NAME = "thread";
 
     public static final String TRACE_CLASS_NAME = "class";
 
