@@ -25,9 +25,9 @@ public class BusinessEventLogLayout extends LayoutBase<ILoggingEvent> {
     private static final String time = "time";
     private static final String traceId = "traceId";
     private static final String clientId = "clientId";
+    private static final String userId = "userId";
     private static final String hostname = "hostname";
     private static final String appName = "appName";
-    private static final String userId = "userId";
     private static final String eventType = "eventType";
     private static final String properties = "properties";
 
