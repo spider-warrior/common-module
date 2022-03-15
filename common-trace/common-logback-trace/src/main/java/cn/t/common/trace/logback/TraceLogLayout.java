@@ -39,8 +39,8 @@ public class TraceLogLayout extends LayoutBase<ILoggingEvent> {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put(time, DateUtil.convertToZonedDateTimeString((new Date(event.getTimeStamp()))));
         map.put(traceId, event.getMDCPropertyMap().get(TraceConstants.TRACE_ID_NAME));
-        map.put(pSpanId, event.getMDCPropertyMap().get(TraceConstants.TRACE_P_SPAN_ID_NAME));
-        map.put(spanId, event.getMDCPropertyMap().get(TraceConstants.TRACE_SPAN_ID_NAME));
+        map.put(pSpanId, event.getMDCPropertyMap().get(TraceConstants.P_SPAN_ID_NAME));
+        map.put(spanId, event.getMDCPropertyMap().get(TraceConstants.SPAN_ID_NAME));
         map.put(hostname, CURRENT_IP);
         map.put(appName, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_APP_NAME));
         map.put(clazz, event.getMDCPropertyMap().get(TraceConstants.TRACE_CLASS_NAME));
