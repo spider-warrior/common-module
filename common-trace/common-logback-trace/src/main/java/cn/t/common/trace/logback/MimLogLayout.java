@@ -31,6 +31,8 @@ public class MimLogLayout extends LayoutBase<ILoggingEvent> {
     private static final String traceId = "traceId";
     private static final String clientId = "clientId";
     private static final String userId = "userId";
+    private static final String pSpanId = "pSpanId";
+    private static final String spanId = "spanId";
     private static final String thread = "thread";
     private static final String logger = "logger";
     private static final String level = "level";
@@ -39,6 +41,8 @@ public class MimLogLayout extends LayoutBase<ILoggingEvent> {
     private static final String clazz = "class";
     private static final String method = "method";
     private static final String success = "success";
+    private static final String startTime = "startTime";
+    private static final String endTime = "endTime";
     private static final String rt = "rt";
     private static final String msg = "msg";
 
@@ -49,6 +53,8 @@ public class MimLogLayout extends LayoutBase<ILoggingEvent> {
         map.put(traceId, event.getMDCPropertyMap().get(TraceConstants.TRACE_ID_NAME));
         map.put(clientId, event.getMDCPropertyMap().get(TraceConstants.CLIENT_ID_NAME));
         map.put(userId, event.getMDCPropertyMap().get(TraceConstants.USER_ID_NAME));
+        map.put(pSpanId, event.getMDCPropertyMap().get(TraceConstants.P_SPAN_ID_NAME));
+        map.put(spanId, event.getMDCPropertyMap().get(TraceConstants.SPAN_ID_NAME));
         map.put(hostname, CURRENT_IP);
         map.put(appName, event.getLoggerContextVO().getPropertyMap().get(TraceConstants.TRACE_APP_NAME));
         map.put(logger, event.getLoggerName());
@@ -57,6 +63,8 @@ public class MimLogLayout extends LayoutBase<ILoggingEvent> {
         map.put(clazz, event.getMDCPropertyMap().get(TraceConstants.TRACE_CLASS_NAME));
         map.put(method, event.getMDCPropertyMap().get(TraceConstants.TRACE_METHOD_NAME));
         map.put(success, event.getMDCPropertyMap().get(TraceConstants.TRACE_SUCCESS_NAME));
+        map.put(startTime, event.getMDCPropertyMap().get(TraceConstants.TRACE_START_TIME_NAME));
+        map.put(endTime, event.getMDCPropertyMap().get(TraceConstants.TRACE_END_TIME_NAME));
         map.put(rt, event.getMDCPropertyMap().get(TraceConstants.TRACE_RT_NAME));
         map.put(msg, event.getFormattedMessage());
         try {
