@@ -14,6 +14,8 @@ public class TraceConstants {
 
     public static final String TRACE_CLIENT_ID_HEADER_NAME = "X-Request-Client-Id";
 
+    public static final String TRACE_P_SPAN_ID_HEADER_NAME = "X-Request-P-Span-Id";
+
     public static final String TRACE_SPAN_ID_HEADER_NAME = "X-Request-Span-Id";
 
     public static final String TRACE_ID_NAME = "traceId";
