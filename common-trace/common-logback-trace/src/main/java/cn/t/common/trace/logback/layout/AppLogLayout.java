@@ -1,4 +1,4 @@
-package cn.t.common.trace.logback;
+package cn.t.common.trace.logback.layout;
 
 import ch.qos.logback.classic.pattern.*;
 import ch.qos.logback.classic.spi.ILoggingEvent;
@@ -6,6 +6,7 @@ import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.LayoutBase;
 import cn.t.common.trace.generic.TraceConstants;
+import cn.t.common.trace.logback.LogConstants;
 import cn.t.util.common.ArrayUtil;
 import cn.t.util.common.DateUtil;
 import cn.t.util.common.JsonUtil;
@@ -22,6 +23,7 @@ import java.util.Map;
  * @author yj
  * @since 2020-04-15 19:51
  **/
+@Deprecated
 public class AppLogLayout extends LayoutBase<ILoggingEvent> {
 
     private static final ThreadConverter threadConverter = new ThreadConverter();

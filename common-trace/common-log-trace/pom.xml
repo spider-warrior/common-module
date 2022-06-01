@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>cn.t</groupId>
-        <artifactId>lib-parent-pom</artifactId>
-        <version>1.0.9.RELEASE</version>
+        <artifactId>lib-pom</artifactId>
+        <version>1.0.10.RELEASE</version>
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>common-log-trace</artifactId>
-    <version>1.0.7.RELEASE</version>
+    <version>1.0.8.RELEASE</version>
     <packaging>jar</packaging>
 
     <dependencies>
