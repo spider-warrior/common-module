@@ -12,7 +12,7 @@
         <module>common-trace</module>
         <module>common-entity</module>
         <module>common-feign</module>
-        <module>common-response</module>
+        <module>common-web</module>
         <module>common-rpc</module>
         <module>common-service</module>
     </modules>
