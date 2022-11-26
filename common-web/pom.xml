@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common-response</artifactId>
+    <artifactId>common-web</artifactId>
     <version>1.0.9-SNAPSHOT</version>
 
     <dependencies>
