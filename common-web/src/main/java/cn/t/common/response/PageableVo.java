@@ -12,7 +12,7 @@ public class PageableVo implements Serializable {
     /**
      * 页码，从1开始
      */
-    private final int pageNum;
+    private final int pageNumber;
     /**
      * 页面大小
      */
@@ -30,8 +30,8 @@ public class PageableVo implements Serializable {
      * */
     private final List<?> list;
 
-    public int getPageNum() {
-        return pageNum;
+    public int getPageNumber() {
+        return pageNumber;
     }
 
     public int getPageSize() {
@@ -50,8 +50,8 @@ public class PageableVo implements Serializable {
         return list;
     }
 
-    public PageableVo(int pageNum, int pageSize, long total, List<?> list) {
-        this.pageNum = pageNum;
+    public PageableVo(int pageNumber, int pageSize, long total, List<?> list) {
+        this.pageNumber = pageNumber;
         this.pageSize = pageSize;
         this.total = total;
         if(pageSize == 0) {
@@ -66,14 +66,14 @@ public class PageableVo implements Serializable {
         return EMPTY;
     }
 
-    public static PageableVo empty(int pageNum, int pageSize) {
-        return new PageableVo(pageNum, pageSize, 0, Collections.emptyList());
+    public static PageableVo empty(int pageNumber, int pageSize) {
+        return new PageableVo(pageNumber, pageSize, 0, Collections.emptyList());
     }
 
     @Override
     public String toString() {
         return "PageableVo{" +
-                "pageNum=" + pageNum +
+                "pageNumber=" + pageNumber +
                 ", pageSize=" + pageSize +
                 ", total=" + total +
                 ", list=" + list +
