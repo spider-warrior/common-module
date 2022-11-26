@@ -4,11 +4,6 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author <a href="mailto:yangjian@liby.ltd">研发部-杨建</a>
- * @version V1.0
- * @since 2021-03-17 10:21
- **/
 public class PageableVo implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -33,7 +28,7 @@ public class PageableVo implements Serializable {
     /**
      * 数据
      * */
-    private final List<Object> list;
+    private final List<?> list;
 
     public int getPageNum() {
         return pageNum;
@@ -51,11 +46,11 @@ public class PageableVo implements Serializable {
         return pages;
     }
 
-    public List<Object> getList() {
+    public List<?> getList() {
         return list;
     }
 
-    public PageableVo(int pageNum, int pageSize, long total, List<Object> list) {
+    public PageableVo(int pageNum, int pageSize, long total, List<?> list) {
         this.pageNum = pageNum;
         this.pageSize = pageSize;
         this.total = total;
@@ -72,7 +67,7 @@ public class PageableVo implements Serializable {
     }
 
     public static PageableVo empty(int pageNum, int pageSize) {
-        return new <Object>PageableVo(pageNum, pageSize, 0, Collections.emptyList());
+        return new PageableVo(pageNum, pageSize, 0, Collections.emptyList());
     }
 
     @Override
