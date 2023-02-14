@@ -1,7 +1,7 @@
 package cn.t.common.trace.logback.message;
 
 import java.io.Serializable;
-import java.util.Properties;
+import java.util.Map;
 
 /**
  * business event message
@@ -14,7 +14,7 @@ public class BusinessEventMessage implements Serializable {
 
     private String userId;
     private String eventType;
-    private Properties properties;
+    private Map<String, Object> properties;
 
     public String getUserId() {
         return userId;
@@ -32,11 +32,11 @@ public class BusinessEventMessage implements Serializable {
         this.eventType = eventType;
     }
 
-    public Properties getProperties() {
+    public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(Properties properties) {
+    public void setProperties(Map<String, Object> properties) {
         this.properties = properties;
     }
 
