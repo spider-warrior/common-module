@@ -14,7 +14,7 @@ public class BusinessEventMessage implements Serializable {
 
     private String userId;
     private String eventType;
-    private Map<String, Object> properties;
+    private Map<String, String> properties;
 
     public String getUserId() {
         return userId;
@@ -32,11 +32,11 @@ public class BusinessEventMessage implements Serializable {
         this.eventType = eventType;
     }
 
-    public Map<String, Object> getProperties() {
+    public Map<String, String> getProperties() {
         return properties;
     }
 
-    public void setProperties(Map<String, Object> properties) {
+    public void setProperties(Map<String, String> properties) {
         this.properties = properties;
     }
 
