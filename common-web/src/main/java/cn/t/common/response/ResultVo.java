@@ -67,7 +67,7 @@ public class ResultVo implements Serializable {
     }
 
     public static ResultVo buildFail() {
-        return buildFail(ErrorInfoEnum.SERVER_INTERNAL_ERROR.errorInfo);
+        return buildFail(ErrorInfoEnum.INTERNAL_SERVER_ERROR.errorInfo);
     }
 
     public static ResultVo buildFail(ErrorInfo errorInfo) {

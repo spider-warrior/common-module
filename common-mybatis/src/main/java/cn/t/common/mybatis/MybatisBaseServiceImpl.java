@@ -5,6 +5,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -32,6 +33,11 @@ public abstract class MybatisBaseServiceImpl<T extends BaseEntity<PK>, E, PK ext
     }
 
     @Override
+    public Page<T> queryPageByExampleWithBlobs(E e) {
+        return PageHelper.startPage(e).doSelectPage(() -> baseMapper.selectByExampleWithBLOBs(e));
+    }
+
+    @Override
     public List<T> queryAll() {
         return baseMapper.selectAll();
     }
@@ -47,22 +53,41 @@ public abstract class MybatisBaseServiceImpl<T extends BaseEntity<PK>, E, PK ext
 
     @Override
     public void save(T t) {
+        beforeSave(t);
         baseMapper.insert(t);
     }
 
     @Override
     public void saveSelective(T t) {
+        beforeSave(t);
         baseMapper.insertSelective(t);
+    }
+
+    private void beforeSave(T t) {
+        if(t.getCrTime() == null) {
+            t.setCrTime(LocalDateTime.now());
+        }
+    }
+
+    @Override
+    public void saveList(List<T> list) {
+        baseMapper.insertList(list);
     }
 
     @Override
     public void modifyByPrimaryKey(T t) {
+        beforeModify(t);
         baseMapper.updateByPrimaryKey(t);
     }
 
     @Override
     public void modifyByPrimaryKeySelective(T t) {
+        beforeModify(t);
         baseMapper.updateByPrimaryKeySelective(t);
+    }
+
+    private void beforeModify(T t) {
+        t.setUpTime(LocalDateTime.now());
     }
 
     public MybatisBaseServiceImpl(M baseMapper) {

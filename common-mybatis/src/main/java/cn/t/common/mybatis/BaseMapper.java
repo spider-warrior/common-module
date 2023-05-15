@@ -23,6 +23,8 @@ public interface BaseMapper<T, E, PK extends Serializable> {
 
     List<T> selectByExample(E example);
 
+    List<T> selectByExampleWithBLOBs(E example);
+
     List<T> selectAll();
 
     int updateByPrimaryKey(T record);

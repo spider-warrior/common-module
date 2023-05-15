@@ -4,10 +4,10 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-public class PageableVo implements Serializable {
+public class PageVo implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private static final PageableVo EMPTY = new PageableVo(1, 0, 0, Collections.emptyList());
+    private static final PageVo EMPTY = new PageVo(1, 10, 0, Collections.emptyList());
 
     /**
      * 页码，从1开始
@@ -50,7 +50,7 @@ public class PageableVo implements Serializable {
         return list;
     }
 
-    public PageableVo(int pageNumber, int pageSize, long total, List<?> list) {
+    public PageVo(int pageNumber, int pageSize, long total, List<?> list) {
         this.pageNumber = pageNumber;
         this.pageSize = pageSize;
         this.total = total;
@@ -62,21 +62,21 @@ public class PageableVo implements Serializable {
         this.list = list;
     }
 
-    public static PageableVo empty() {
+    public static PageVo empty() {
         return EMPTY;
     }
 
-    public static PageableVo empty(int pageNumber, int pageSize) {
-        return new PageableVo(pageNumber, pageSize, 0, Collections.emptyList());
+    public static PageVo empty(int pageNum, int pageSize) {
+        return new PageVo(pageNum, pageSize, 0, Collections.emptyList());
     }
 
     @Override
     public String toString() {
-        return "PageableVo{" +
-                "pageNumber=" + pageNumber +
-                ", pageSize=" + pageSize +
-                ", total=" + total +
-                ", list=" + list +
-                '}';
+        return "PageVo{" +
+            "pageNumber=" + pageNumber +
+            ", pageSize=" + pageSize +
+            ", total=" + total +
+            ", list=" + list +
+            '}';
     }
 }

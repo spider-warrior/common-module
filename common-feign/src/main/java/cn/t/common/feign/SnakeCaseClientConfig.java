@@ -10,20 +10,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
-public class CamelCaseClientConfig {
+public class SnakeCaseClientConfig {
 
-    protected static final ObjectMapper objectMapper = ObjectMapperUtil.buildObjectMapper(PropertyNamingStrategy.LOWER_CAMEL_CASE);
+    protected static final ObjectMapper objectMapper = ObjectMapperUtil.buildObjectMapper(PropertyNamingStrategy.SNAKE_CASE);
     protected static final HttpMessageConverter<Object> jacksonConverter = new MappingJackson2HttpMessageConverter(objectMapper);
     protected static final HttpMessageConverters messageConverters = new HttpMessageConverters(jacksonConverter);
     protected static final ObjectFactory<HttpMessageConverters> objectFactory = () -> messageConverters;
 
     @Bean
-    Decoder camelCaseFeignDecoder() {
+    Decoder snakeCaseFeignDecoder() {
         return BeanUtil.responseEntityDecoder(objectFactory);
     }
 
     @Bean
-    Encoder camelCaseFeignEncoder() {
+    Encoder snakeCaseFeignEncoder() {
         return BeanUtil.springEncoder(objectFactory);
     }
 

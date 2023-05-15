@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
+ * BaseEntity
+ *
  * @author <a href="mailto:yangjian@liby.ltd">研发部-杨建</a>
  * @version V1.0
  * @since 2021-03-17 10:26
@@ -42,9 +44,9 @@ public class BaseEntity<Key extends Serializable> implements Serializable {
     @Override
     public String toString() {
         return "BaseEntity{" +
-                "id=" + id +
-                ", crTime=" + crTime +
-                ", upTime=" + upTime +
-                '}';
+            "id=" + id +
+            ", crTime=" + crTime +
+            ", upTime=" + upTime +
+            '}';
     }
 }

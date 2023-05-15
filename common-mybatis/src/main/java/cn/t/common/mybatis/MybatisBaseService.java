@@ -14,6 +14,8 @@ public interface MybatisBaseService<T extends BaseEntity<PK>, E, PK extends Seri
 
     Page<T> queryPageByExample(E e);
 
+    Page<T> queryPageByExampleWithBlobs(E e);
+
     List<T> queryAll();
 
     void removeByPrimaryKey(PK id);
@@ -21,6 +23,8 @@ public interface MybatisBaseService<T extends BaseEntity<PK>, E, PK extends Seri
     void save(T t);
 
     void saveSelective(T t);
+
+    void saveList(List<T> list);
 
     void modifyByPrimaryKey(T t);
 

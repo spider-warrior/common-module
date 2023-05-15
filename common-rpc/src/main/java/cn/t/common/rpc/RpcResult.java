@@ -41,10 +41,10 @@ public class RpcResult<T> implements Serializable {
     @Override
     public String toString() {
         return "RpcResult{" +
-                "code='" + code + '\'' +
-                ", message='" + message + '\'' +
-                ", data=" + data +
-                '}';
+            "code='" + code + '\'' +
+            ", message='" + message + '\'' +
+            ", data=" + data +
+            '}';
     }
 
     public static <T> RpcResult<T> buildSuccess() {

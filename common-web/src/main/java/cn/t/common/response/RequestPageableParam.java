@@ -1,10 +1,14 @@
-package cn.t.common.rpc;
+package cn.t.common.response;
 
 import java.util.List;
 
-public class PageableRpcParam {
+/**
+ * 分页查询参数
+ **/
+public class RequestPageableParam {
+
     private int pageNumber = 1;
-    private int pageSize = 20;
+    private int pageSize = 10;
     private List<String> orderByList;
 
     public int getPageNumber() {
@@ -33,10 +37,10 @@ public class PageableRpcParam {
 
     @Override
     public String toString() {
-        return "PageableRequestParam{" +
-                "pageNumber=" + pageNumber +
-                ", pageSize=" + pageSize +
-                ", orderByList=" + orderByList +
-                '}';
+        return "RequestPageableParam{" +
+            "pageNumber=" + pageNumber +
+            ", pageSize=" + pageSize +
+            ", orderByList=" + orderByList +
+            '}';
     }
 }

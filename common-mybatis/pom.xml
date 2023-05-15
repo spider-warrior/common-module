@@ -16,21 +16,21 @@
     <dependencies>
         <dependency>
             <groupId>cn.t</groupId>
-            <artifactId>common-entity</artifactId>
+            <artifactId>common-util</artifactId>
         </dependency>
         <dependency>
             <groupId>cn.t</groupId>
-            <artifactId>common-util</artifactId>
+            <artifactId>common-entity</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.5.6</version>
+            <version>3.5.10</version>
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <version>5.2.0</version>
+            <version>5.3.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
