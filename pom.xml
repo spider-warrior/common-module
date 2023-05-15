@@ -15,6 +15,7 @@
         <module>common-web</module>
         <module>common-rpc</module>
         <module>common-service</module>
+        <module>common-mongo</module>
     </modules>
     <packaging>pom</packaging>
 
