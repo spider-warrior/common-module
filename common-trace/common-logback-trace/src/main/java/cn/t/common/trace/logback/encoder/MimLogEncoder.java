@@ -68,7 +68,7 @@ public class MimLogEncoder extends EncoderBase<ILoggingEvent> {
         map.put(endTime, event.getMDCPropertyMap().get(TraceConstants.TRACE_END_TIME_NAME));
         map.put(rt, event.getMDCPropertyMap().get(TraceConstants.TRACE_RT_NAME));
         map.put(msg, event.getFormattedMessage());
-        map.put(properties, MimLogContext.getThreadLogProperties());
+        map.put(properties, MimLogContext.getLogProperties());
         try {
             return (JsonUtil.serialize(map) + CoreConstants.LINE_SEPARATOR).getBytes();
         } catch (JsonProcessingException e) {
