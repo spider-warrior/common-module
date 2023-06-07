@@ -8,6 +8,7 @@ import ch.qos.logback.core.encoder.EncoderBase;
 import cn.t.common.trace.generic.TraceConstants;
 import cn.t.common.trace.logback.ContextConstants;
 import cn.t.common.trace.logback.LogConstants;
+import cn.t.common.trace.logback.MimLogContext;
 import cn.t.util.common.DateUtil;
 import cn.t.util.common.JsonUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -67,7 +68,7 @@ public class MimLogEncoder extends EncoderBase<ILoggingEvent> {
         map.put(endTime, event.getMDCPropertyMap().get(TraceConstants.TRACE_END_TIME_NAME));
         map.put(rt, event.getMDCPropertyMap().get(TraceConstants.TRACE_RT_NAME));
         map.put(msg, event.getFormattedMessage());
-        map.put(properties, event.getMDCPropertyMap().get(TraceConstants.TRACE_SPAN_PROPERTIES));
+        map.put(properties, MimLogContext.getThreadLogProperties());
         try {
             return (JsonUtil.serialize(map) + CoreConstants.LINE_SEPARATOR).getBytes();
         } catch (JsonProcessingException e) {

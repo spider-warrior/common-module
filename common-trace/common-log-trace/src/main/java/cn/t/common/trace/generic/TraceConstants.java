@@ -42,6 +42,4 @@ public class TraceConstants {
 
     public static final String TRACE_END_TIME_NAME = "endTime";
 
-    public static final String TRACE_SPAN_PROPERTIES = "properties";
-
 }
