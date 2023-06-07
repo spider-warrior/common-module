@@ -39,6 +39,7 @@ public class MimLogEncoder extends EncoderBase<ILoggingEvent> {
     private static final String endTime = "endTime";
     private static final String rt = "rt";
     private static final String msg = "msg";
+    protected static final String properties = "properties";
 
     @Override
     public byte[] headerBytes() {
@@ -66,6 +67,7 @@ public class MimLogEncoder extends EncoderBase<ILoggingEvent> {
         map.put(endTime, event.getMDCPropertyMap().get(TraceConstants.TRACE_END_TIME_NAME));
         map.put(rt, event.getMDCPropertyMap().get(TraceConstants.TRACE_RT_NAME));
         map.put(msg, event.getFormattedMessage());
+        map.put(properties, event.getMDCPropertyMap().get(TraceConstants.TRACE_SPAN_PROPERTIES));
         try {
             return (JsonUtil.serialize(map) + CoreConstants.LINE_SEPARATOR).getBytes();
         } catch (JsonProcessingException e) {

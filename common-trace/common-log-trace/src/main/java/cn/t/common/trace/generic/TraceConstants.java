@@ -30,12 +30,6 @@ public class TraceConstants {
 
     public static final String TRACE_APP_NAME = "appName";
 
-    public static final String TRACE_HOSTNAME = "hostname";
-
-    public static final String TRACE_LOGGER_NAME = "logger";
-
-    public static final String TRACE_THREAD_NAME = "thread";
-
     public static final String TRACE_CLASS_NAME = "class";
 
     public static final String TRACE_METHOD_NAME = "method";
@@ -47,5 +41,7 @@ public class TraceConstants {
     public static final String TRACE_START_TIME_NAME = "startTime";
 
     public static final String TRACE_END_TIME_NAME = "endTime";
+
+    public static final String TRACE_SPAN_PROPERTIES = "properties";
 
 }
