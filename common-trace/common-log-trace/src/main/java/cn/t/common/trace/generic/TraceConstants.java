@@ -34,7 +34,7 @@ public class TraceConstants {
 
     public static final String TRACE_METHOD_NAME = "method";
 
-    public static final String TRACE_SUCCESS_NAME = "success";
+    public static final String TRACE_ERROR_TYPE_NAME = "errorType";
 
     public static final String TRACE_RT_NAME = "rt";
 

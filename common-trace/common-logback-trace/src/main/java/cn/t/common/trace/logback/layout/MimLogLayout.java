@@ -42,7 +42,7 @@ public class MimLogLayout extends LayoutBase<ILoggingEvent> {
     private static final String appName = "appName";
     private static final String clazz = "class";
     private static final String method = "method";
-    private static final String success = "success";
+    private static final String errorType = "errorType";
     private static final String startTime = "startTime";
     private static final String endTime = "endTime";
     private static final String rt = "rt";
@@ -64,7 +64,7 @@ public class MimLogLayout extends LayoutBase<ILoggingEvent> {
         map.put(thread, threadConverter.convert(event));
         map.put(clazz, event.getMDCPropertyMap().get(TraceConstants.TRACE_CLASS_NAME));
         map.put(method, event.getMDCPropertyMap().get(TraceConstants.TRACE_METHOD_NAME));
-        map.put(success, event.getMDCPropertyMap().get(TraceConstants.TRACE_SUCCESS_NAME));
+        map.put(errorType, event.getMDCPropertyMap().get(TraceConstants.TRACE_ERROR_TYPE_NAME));
         map.put(startTime, event.getMDCPropertyMap().get(TraceConstants.TRACE_START_TIME_NAME));
         map.put(endTime, event.getMDCPropertyMap().get(TraceConstants.TRACE_END_TIME_NAME));
         map.put(rt, event.getMDCPropertyMap().get(TraceConstants.TRACE_RT_NAME));
