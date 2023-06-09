@@ -36,6 +36,8 @@ public class TraceConstants {
 
     public static final String TRACE_ERROR_TYPE_NAME = "errorType";
 
+    public static final String TRACE_ERROR_MSG_NAME = "errorMsg";
+
     public static final String TRACE_RT_NAME = "rt";
 
     public static final String TRACE_START_TIME_NAME = "startTime";
